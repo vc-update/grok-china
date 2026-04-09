@@ -1,0 +1,79 @@
+/* 1. 首页 Hero 区域增强 - 强调 Grok 品牌 */
+.VPHero .name {
+  background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  filter: drop-shadow(0 0 30px rgba(189, 52, 254, 0.4));
+}
+
+/* 2. 按钮动态光效 - 增加点击率 (CTR) */
+.VPButton.brand {
+  background: linear-gradient(90deg, #7928ca, #ff0080) !important;
+  border: none;
+  box-shadow: 0 4px 14px 0 rgba(121, 40, 202, 0.39);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: pulse 2s infinite;
+}
+
+.VPButton.brand:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(121, 40, 202, 0.5);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 0, 128, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 0, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 0, 128, 0); }
+}
+
+/* 3. SEO 正文区域美化 - 让“废话”看起来像“专业文档” */
+.seo-content-container {
+  max-width: 960px; /* 限制宽度，提升阅读体验 */
+  margin: 60px auto;
+  padding: 0 24px;
+}
+
+.seo-content-container h2 {
+  font-size: 24px;
+  border-bottom: 2px solid var(--vp-c-brand-1);
+  padding-bottom: 10px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  color: var(--vp-c-text-1);
+}
+
+.seo-content-container h3 {
+  font-size: 18px;
+  margin-top: 30px;
+  color: var(--vp-c-text-2);
+}
+
+.seo-content-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  display: table; /* 强制表格显示 */
+}
+
+.seo-content-container th, 
+.seo-content-container td {
+  border: 1px solid var(--vp-c-divider);
+  padding: 12px;
+  text-align: left;
+}
+
+/* 强调表格中的推荐项 */
+.seo-content-container td:nth-child(3) {
+  background-color: rgba(189, 52, 254, 0.05);
+  font-weight: bold;
+  color: var(--vp-c-brand-1);
+}
+
+/* 移动端适配 */
+@media (max-width: 640px) {
+  .VPHero .name {
+    font-size: 40px;
+  }
+}

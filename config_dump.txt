@@ -1,0 +1,250 @@
+import { defineConfig } from 'vitepress'
+
+// IndexNow key（用于主动推送新页面给 Bing/Yandex）
+const INDEXNOW_KEY = '994de5aaa8d242a08ce1e8451d6110a5'
+const SITE_HOST = 'https://grok-china.com'
+
+export default defineConfig({
+  title: 'Grok 中文网',
+  description:
+    '2026 最新 Grok 中文版导航与国内使用指南，提供 Grok 官网入口、国内使用教程、Grok 对比评测与实战教程。',
+  lang: 'zh-CN',
+  cleanUrls: true,
+
+  // 先保持严格检查，方便及时发现死链
+  // 如果你临时调试想忽略死链，可以改成 true
+  ignoreDeadLinks: false,
+
+  sitemap: {
+    hostname: 'https://grok-china.com'
+  },
+
+  lastUpdated: true,
+
+  head: [
+    // 你目前只有 logo.svg，先直接拿它当站点图标
+    ['link', { rel: 'icon', href: '/logo.svg' }],
+
+    // IndexNow 验证 meta（Bing 也接受 meta 方式验证）
+    ['meta', { name: 'indexnow-verification', content: INDEXNOW_KEY }],
+
+    [
+      'meta',
+      {
+        name: 'keywords',
+        content:
+          'Grok,Grok中文网,Grok中文版,Grok国内使用,Grok官网,Grok中国怎么用,Grok教程,Grok 4.1,Grok 4.2,SnakeGPT,GPTCat'
+      }
+    ],
+    ['meta', { name: 'robots', content: 'index, follow' }],
+    ['meta', { name: 'author', content: 'Grok 中文网' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:locale', content: 'zh_CN' }],
+    ['meta', { property: 'og:site_name', content: 'Grok 中文网' }],
+    ['meta', { property: 'og:title', content: 'Grok 中文网｜Grok 国内使用指南与中文版入口' }],
+    [
+      'meta',
+      {
+        property: 'og:description',
+        content: '提供 Grok 官网入口、国内使用教程、Grok 与 ChatGPT 对比、Grok 实战教程与模型更新信息。'
+      }
+    ],
+    ['meta', { property: 'og:url', content: `${SITE_HOST}/` }],
+
+    [
+      'script',
+      { type: 'application/ld+json' },
+      JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Grok 中文网',
+        url: `${SITE_HOST}/`,
+        description: 'Grok 中文版导航、国内使用指南与实战教程网站',
+        inLanguage: 'zh-CN',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${SITE_HOST}/?q={search_term_string}`
+          },
+          'query-input': 'required name=search_term_string'
+        }
+      })
+    ],
+
+    // BreadcrumbList schema（提升 Bing 搜索结果展示，显示路径面包屑）
+    [
+      'script',
+      { type: 'application/ld+json' },
+      JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Grok 中文网',
+        url: `${SITE_HOST}/`,
+        logo: `${SITE_HOST}/logo.svg`,
+        sameAs: []
+      })
+    ]
+  ],
+
+  themeConfig: {
+    logo: '/logo.svg',
+    siteTitle: 'Grok 中文网',
+
+    nav: [
+      { text: '首页', link: '/' },
+      { text: 'Grok 科普', link: '/intro/' },
+      { text: '使用教程', link: '/tutorial/' },
+      { text: '模型对比', link: '/compare/' },
+      { text: '版本更新', link: '/news/' },
+      {
+        text: '立即体验（SnakeGPT）',
+        link: 'https://snakegpt.vip',
+        target: '_blank',
+        rel: 'noopener noreferrer'
+      },
+      {
+        text: '备用入口（GPTCat）',
+        link: 'https://gptcat.cc',
+        target: '_blank',
+        rel: 'noopener noreferrer'
+      }
+    ],
+
+    sidebar: {
+      '/intro/': [
+        {
+          text: 'Grok 核心知识',
+          items: [
+            { text: '导读', link: '/intro/' },
+            { text: 'Grok 是什么？', link: '/intro/what-is-grok' },
+            { text: 'Grok 官网入口', link: '/intro/grok-official-entry' },
+            { text: 'Grok vs ChatGPT', link: '/intro/grok-vs-chatgpt' }
+          ]
+        }
+      ],
+
+      '/tutorial/': [
+        {
+          text: 'Grok 教程',
+          collapsed: false,
+          items: [
+            { text: '教程导读', link: '/tutorial/' },
+            { text: 'Grok 国内使用指南', link: '/tutorial/grok-use-in-china' },
+            { text: 'Grok 注册教程', link: '/tutorial/grok-register' },
+            { text: 'Grok Prompt 教程', link: '/tutorial/grok-prompt-guide' },
+            { text: 'Grok API 教程', link: '/tutorial/grok-api-guide' },
+            { text: 'Deep Search 深度搜索指南', link: '/tutorial/grok-deepsearch' }
+          ]
+        },
+        {
+          text: '国内资源共享',
+          collapsed: false,
+          items: [
+            { text: 'ChatGPT 中文指南', link: 'https://www.chatgpt-chinese-guide.com/' },
+            { text: 'ChatGPT 国内使用站', link: 'https://www.chatgpt-china.chat/' },
+            { text: 'Gemini Guides', link: 'https://gemini-guides.com/' }
+          ]
+        }
+      ],
+
+      '/compare/': [
+        {
+          text: '模型对比',
+          items: [
+            { text: '对比导读', link: '/compare/' },
+            { text: 'Grok vs ChatGPT', link: '/compare/grok-vs-chatgpt-2026' },
+            { text: 'Grok vs Gemini', link: '/compare/grok-vs-gemini-2026' },
+            { text: 'Grok 3 vs Claude 3.7 深度对比', link: '/compare/grok-vs-claude' },
+            { text: 'ChatGPT 中文版国内使用指南', link: '/compare/chatgpt-china' }
+          ]
+        }
+      ],
+
+      '/news/': [
+        {
+          text: '版本更新',
+          items: [
+            { text: '更新导读', link: '/news/' },
+            { text: 'Grok 模型更新日志', link: '/news/grok-model-updates-2026' }
+          ]
+        }
+      ]
+    },
+
+    footer: {
+      message: '本站为 Grok 中文教程与导航站，非 xAI 官方网站。',
+      copyright: 'Copyright © 2026 Grok-China.com'
+    },
+
+    search: {
+      provider: 'local'
+    },
+
+    lastUpdated: {
+      text: '最后更新于'
+    },
+
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇'
+    },
+
+    outline: {
+      label: '文章目录'
+    },
+
+    returnToTopLabel: '返回顶部',
+    sidebarMenuLabel: '文章导航',
+    darkModeSwitchLabel: '深色模式'
+  },
+
+  // 为每篇文章自动注入 Article schema（让 Bing 识别发布时间和内容类型）
+  transformPageData(pageData) {
+    const fm = pageData.frontmatter || {}
+
+    // 只对非首页文章注入 Article schema
+    if (pageData.relativePath !== 'index.md') {
+      const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: pageData.title || fm.title || 'Grok 中文网',
+        description: fm.description || pageData.description || '',
+        datePublished: fm.date
+          ? new Date(fm.date).toISOString()
+          : new Date('2026-01-01').toISOString(),
+        dateModified: fm.lastUpdated
+          ? new Date(fm.lastUpdated).toISOString()
+          : new Date().toISOString(),
+        author: {
+          '@type': 'Organization',
+          name: 'Grok 中文网',
+          url: SITE_HOST
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Grok 中文网',
+          url: SITE_HOST,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${SITE_HOST}/logo.svg`
+          }
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${SITE_HOST}/${pageData.relativePath.replace(/\.md$/, '').replace(/\/index$/, '')}`
+        },
+        inLanguage: 'zh-CN'
+      }
+
+      pageData.frontmatter.head = pageData.frontmatter.head || []
+      pageData.frontmatter.head.push([
+        'script',
+        { type: 'application/ld+json' },
+        JSON.stringify(articleSchema)
+      ])
+    }
+  }
+})

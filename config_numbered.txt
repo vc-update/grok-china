@@ -1,0 +1,250 @@
+001|import { defineConfig } from 'vitepress'
+002|
+003|// IndexNow key（用于主动推送新页面给 Bing/Yandex）
+004|const INDEXNOW_KEY = '994de5aaa8d242a08ce1e8451d6110a5'
+005|const SITE_HOST = 'https://grok-china.com'
+006|
+007|export default defineConfig({
+008|  title: 'Grok 中文网',
+009|  description:
+010|    '2026 最新 Grok 中文版导航与国内使用指南，提供 Grok 官网入口、国内使用教程、Grok 对比评测与实战教程。',
+011|  lang: 'zh-CN',
+012|  cleanUrls: true,
+013|
+014|  // 先保持严格检查，方便及时发现死链
+015|  // 如果你临时调试想忽略死链，可以改成 true
+016|  ignoreDeadLinks: false,
+017|
+018|  sitemap: {
+019|    hostname: 'https://grok-china.com'
+020|  },
+021|
+022|  lastUpdated: true,
+023|
+024|  head: [
+025|    // 你目前只有 logo.svg，先直接拿它当站点图标
+026|    ['link', { rel: 'icon', href: '/logo.svg' }],
+027|
+028|    // IndexNow 验证 meta（Bing 也接受 meta 方式验证）
+029|    ['meta', { name: 'indexnow-verification', content: INDEXNOW_KEY }],
+030|
+031|    [
+032|      'meta',
+033|      {
+034|        name: 'keywords',
+035|        content:
+036|          'Grok,Grok中文网,Grok中文版,Grok国内使用,Grok官网,Grok中国怎么用,Grok教程,Grok 4.1,Grok 4.2,SnakeGPT,GPTCat'
+037|      }
+038|    ],
+039|    ['meta', { name: 'robots', content: 'index, follow' }],
+040|    ['meta', { name: 'author', content: 'Grok 中文网' }],
+041|    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+042|
+043|    ['meta', { property: 'og:type', content: 'website' }],
+044|    ['meta', { property: 'og:locale', content: 'zh_CN' }],
+045|    ['meta', { property: 'og:site_name', content: 'Grok 中文网' }],
+046|    ['meta', { property: 'og:title', content: 'Grok 中文网｜Grok 国内使用指南与中文版入口' }],
+047|    [
+048|      'meta',
+049|      {
+050|        property: 'og:description',
+051|        content: '提供 Grok 官网入口、国内使用教程、Grok 与 ChatGPT 对比、Grok 实战教程与模型更新信息。'
+052|      }
+053|    ],
+054|    ['meta', { property: 'og:url', content: `${SITE_HOST}/` }],
+055|
+056|    [
+057|      'script',
+058|      { type: 'application/ld+json' },
+059|      JSON.stringify({
+060|        '@context': 'https://schema.org',
+061|        '@type': 'WebSite',
+062|        name: 'Grok 中文网',
+063|        url: `${SITE_HOST}/`,
+064|        description: 'Grok 中文版导航、国内使用指南与实战教程网站',
+065|        inLanguage: 'zh-CN',
+066|        potentialAction: {
+067|          '@type': 'SearchAction',
+068|          target: {
+069|            '@type': 'EntryPoint',
+070|            urlTemplate: `${SITE_HOST}/?q={search_term_string}`
+071|          },
+072|          'query-input': 'required name=search_term_string'
+073|        }
+074|      })
+075|    ],
+076|
+077|    // BreadcrumbList schema（提升 Bing 搜索结果展示，显示路径面包屑）
+078|    [
+079|      'script',
+080|      { type: 'application/ld+json' },
+081|      JSON.stringify({
+082|        '@context': 'https://schema.org',
+083|        '@type': 'Organization',
+084|        name: 'Grok 中文网',
+085|        url: `${SITE_HOST}/`,
+086|        logo: `${SITE_HOST}/logo.svg`,
+087|        sameAs: []
+088|      })
+089|    ]
+090|  ],
+091|
+092|  themeConfig: {
+093|    logo: '/logo.svg',
+094|    siteTitle: 'Grok 中文网',
+095|
+096|    nav: [
+097|      { text: '首页', link: '/' },
+098|      { text: 'Grok 科普', link: '/intro/' },
+099|      { text: '使用教程', link: '/tutorial/' },
+100|      { text: '模型对比', link: '/compare/' },
+101|      { text: '版本更新', link: '/news/' },
+102|      {
+103|        text: '立即体验（SnakeGPT）',
+104|        link: 'https://snakegpt.vip',
+105|        target: '_blank',
+106|        rel: 'noopener noreferrer'
+107|      },
+108|      {
+109|        text: '备用入口（GPTCat）',
+110|        link: 'https://gptcat.cc',
+111|        target: '_blank',
+112|        rel: 'noopener noreferrer'
+113|      }
+114|    ],
+115|
+116|    sidebar: {
+117|      '/intro/': [
+118|        {
+119|          text: 'Grok 核心知识',
+120|          items: [
+121|            { text: '导读', link: '/intro/' },
+122|            { text: 'Grok 是什么？', link: '/intro/what-is-grok' },
+123|            { text: 'Grok 官网入口', link: '/intro/grok-official-entry' },
+124|            { text: 'Grok vs ChatGPT', link: '/intro/grok-vs-chatgpt' }
+125|          ]
+126|        }
+127|      ],
+128|
+129|      '/tutorial/': [
+130|        {
+131|          text: 'Grok 教程',
+132|          collapsed: false,
+133|          items: [
+134|            { text: '教程导读', link: '/tutorial/' },
+135|            { text: 'Grok 国内使用指南', link: '/tutorial/grok-use-in-china' },
+136|            { text: 'Grok 注册教程', link: '/tutorial/grok-register' },
+137|            { text: 'Grok Prompt 教程', link: '/tutorial/grok-prompt-guide' },
+138|            { text: 'Grok API 教程', link: '/tutorial/grok-api-guide' },
+139|            { text: 'Deep Search 深度搜索指南', link: '/tutorial/grok-deepsearch' }
+140|          ]
+141|        },
+142|        {
+143|          text: '国内资源共享',
+144|          collapsed: false,
+145|          items: [
+146|            { text: 'ChatGPT 中文指南', link: 'https://www.chatgpt-chinese-guide.com/' },
+147|            { text: 'ChatGPT 国内使用站', link: 'https://www.chatgpt-china.chat/' },
+148|            { text: 'Gemini Guides', link: 'https://gemini-guides.com/' }
+149|          ]
+150|        }
+151|      ],
+152|
+153|      '/compare/': [
+154|        {
+155|          text: '模型对比',
+156|          items: [
+157|            { text: '对比导读', link: '/compare/' },
+158|            { text: 'Grok vs ChatGPT', link: '/compare/grok-vs-chatgpt-2026' },
+159|            { text: 'Grok vs Gemini', link: '/compare/grok-vs-gemini-2026' },
+160|            { text: 'Grok 3 vs Claude 3.7 深度对比', link: '/compare/grok-vs-claude' },
+161|            { text: 'ChatGPT 中文版国内使用指南', link: '/compare/chatgpt-china' }
+162|          ]
+163|        }
+164|      ],
+165|
+166|      '/news/': [
+167|        {
+168|          text: '版本更新',
+169|          items: [
+170|            { text: '更新导读', link: '/news/' },
+171|            { text: 'Grok 模型更新日志', link: '/news/grok-model-updates-2026' }
+172|          ]
+173|        }
+174|      ]
+175|    },
+176|
+177|    footer: {
+178|      message: '本站为 Grok 中文教程与导航站，非 xAI 官方网站。',
+179|      copyright: 'Copyright © 2026 Grok-China.com'
+180|    },
+181|
+182|    search: {
+183|      provider: 'local'
+184|    },
+185|
+186|    lastUpdated: {
+187|      text: '最后更新于'
+188|    },
+189|
+190|    docFooter: {
+191|      prev: '上一篇',
+192|      next: '下一篇'
+193|    },
+194|
+195|    outline: {
+196|      label: '文章目录'
+197|    },
+198|
+199|    returnToTopLabel: '返回顶部',
+200|    sidebarMenuLabel: '文章导航',
+201|    darkModeSwitchLabel: '深色模式'
+202|  },
+203|
+204|  // 为每篇文章自动注入 Article schema（让 Bing 识别发布时间和内容类型）
+205|  transformPageData(pageData) {
+206|    const fm = pageData.frontmatter || {}
+207|
+208|    // 只对非首页文章注入 Article schema
+209|    if (pageData.relativePath !== 'index.md') {
+210|      const articleSchema = {
+211|        '@context': 'https://schema.org',
+212|        '@type': 'Article',
+213|        headline: pageData.title || fm.title || 'Grok 中文网',
+214|        description: fm.description || pageData.description || '',
+215|        datePublished: fm.date
+216|          ? new Date(fm.date).toISOString()
+217|          : new Date('2026-01-01').toISOString(),
+218|        dateModified: fm.lastUpdated
+219|          ? new Date(fm.lastUpdated).toISOString()
+220|          : new Date().toISOString(),
+221|        author: {
+222|          '@type': 'Organization',
+223|          name: 'Grok 中文网',
+224|          url: SITE_HOST
+225|        },
+226|        publisher: {
+227|          '@type': 'Organization',
+228|          name: 'Grok 中文网',
+229|          url: SITE_HOST,
+230|          logo: {
+231|            '@type': 'ImageObject',
+232|            url: `${SITE_HOST}/logo.svg`
+233|          }
+234|        },
+235|        mainEntityOfPage: {
+236|          '@type': 'WebPage',
+237|          '@id': `${SITE_HOST}/${pageData.relativePath.replace(/\.md$/, '').replace(/\/index$/, '')}`
+238|        },
+239|        inLanguage: 'zh-CN'
+240|      }
+241|
+242|      pageData.frontmatter.head = pageData.frontmatter.head || []
+243|      pageData.frontmatter.head.push([
+244|        'script',
+245|        { type: 'application/ld+json' },
+246|        JSON.stringify(articleSchema)
+247|      ])
+248|    }
+249|  }
+250|})
