@@ -204,6 +204,7 @@ export default defineConfig({
         {
           text: '模型对比',
           items: [
+            { text: '2026年国内免翻墙使用AI大模型完整方案：ChatGPT/Grok/Claude/Gemini/DeepSeek国内直连指南', link: '/compare/2026-guonei-mianfanqiang-ai-shiyong-fangan-zhinan' },
             { text: 'DeepSeek中文版使用指南2026：国内免费体验DeepSeek-V3完整教程（附多平台对比）', link: '/compare/deepseek-zhongwen-ban-guonei-shiyong-zhinan-2026' },
             { text: 'Claude中文版国内使用指南2026：免翻墙体验Claude 4.6全能力完整教程', link: '/compare/claude-zhongwen-ban-guonei-shiyong-zhinan-2026' },
             { text: 'Grok vs ChatGPT vs Claude怎么选？2026年新手AI选择指南（6维度实测对比）', link: '/compare/grok-vs-chatgpt-vs-claude-xinshourumen-xuanze-2026' },
