@@ -151,6 +151,7 @@ export default defineConfig({
           text: 'Grok 教程',
           collapsed: false,
           items: [
+            { text: 'Grok和ChatGPT到底选哪个？2026年4月6类用户场景选择指南（附国内使用入口）', link: '/tutorial/grok-vs-chatgpt-nage-hao-6lei-yonghu-xuanze-zhinan-2026' },
             { text: 'Grok Aurora AI绘图教程2026：零基础生成高质量图片完整指南', link: '/tutorial/grok-aurora-ai-huitu-shengcheng-tupian-jiaocheng-2026' },
             { text: 'Grok办公实战指南2026：10个职场高效场景实测', link: '/tutorial/grok-bangong-shiyong-zhinan-zhichang-xiaolv-2026' },
             { text: 'Grok API开发教程2026：Python调用Grok 4.2接口完整指南', link: '/tutorial/grok-api-kaifa-jiekou-jiaocheng-python-2026' },
