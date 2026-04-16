@@ -151,6 +151,7 @@ export default defineConfig({
           text: 'Grok 教程',
           collapsed: false,
           items: [
+            { text: 'Claude 4.6 国内使用教程2026：免翻墙直连Claude中文版完整指南（4月实测）', link: '/tutorial/claude-46-guonei-shiyong-jiaocheng-wanzheng-zhinan-2026' },
             { text: 'Gemini 3.1 Pro 国内使用完整指南（2026年4月）｜官网入口、免翻墙方案与实测', link: '/tutorial/gemini-31-pro-guonei-shiyong-wanzheng-zhinan-2026-april' },
             { text: 'Grok官方网址入口（xAI Grok官网登录地址）2026年4月最新', link: '/tutorial/grok-guanfang-wangzhi-rukou-guanwang-denglu-zhinan-2026' },
             { text: 'Grok和ChatGPT到底选哪个？2026年4月6类用户场景选择指南（附国内使用入口）', link: '/tutorial/grok-vs-chatgpt-nage-hao-6lei-yonghu-xuanze-zhinan-2026' },
