@@ -138,8 +138,6 @@ export default defineConfig({
         {
           text: 'Grok 核心知识',
           items: [
-            { text: 'Grok中文版 2026：功能详解、使用教程与国内访问方案', link: '/tutorial/grok-zhongwenban-2026-gongneng-jiaocheng-guonei-fangan-2026-04' },
-            { text: 'Grok中文版 2026：功能全解析与国内使用完整指南', link: '/tutorial/grok-zhongwen-ban-2026' },
             { text: '导读', link: '/intro/' },
             { text: 'Grok 是什么？', link: '/intro/what-is-grok' },
             { text: 'Grok 官网入口', link: '/intro/grok-official-entry' },
@@ -153,6 +151,8 @@ export default defineConfig({
           text: 'Grok 教程',
           collapsed: false,
           items: [
+            { text: 'Grok中文版 2026：功能详解、使用教程与国内访问方案', link: '/tutorial/grok-zhongwenban-2026-gongneng-jiaocheng-guonei-fangan-2026-04' },
+            { text: 'Grok中文版 2026：功能全解析与国内使用完整指南', link: '/tutorial/grok-zhongwen-ban-2026' },
             { text: 'Claude 4.6 国内使用教程2026：免翻墙直连Claude中文版完整指南（4月实测）', link: '/tutorial/claude-46-guonei-shiyong-jiaocheng-wanzheng-zhinan-2026' },
             { text: 'Gemini 3.1 Pro 国内使用完整指南（2026年4月）｜官网入口、免翻墙方案与实测', link: '/tutorial/gemini-31-pro-guonei-shiyong-wanzheng-zhinan-2026-april' },
             { text: 'Grok官方网址入口（xAI Grok官网登录地址）2026年4月最新', link: '/tutorial/grok-guanfang-wangzhi-rukou-guanwang-denglu-zhinan-2026' },
