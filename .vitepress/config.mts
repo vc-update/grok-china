@@ -138,6 +138,7 @@ export default defineConfig({
         {
           text: 'Grok 核心知识',
           items: [
+            { text: 'Grok中文版 2026：功能详解、使用教程与国内访问方案', link: '/tutorial/grok-zhongwenban-2026-gongneng-jiaocheng-guonei-fangan-2026-04' },
             { text: 'Grok中文版 2026：功能全解析与国内使用完整指南', link: '/tutorial/grok-zhongwen-ban-2026' },
             { text: '导读', link: '/intro/' },
             { text: 'Grok 是什么？', link: '/intro/what-is-grok' },
