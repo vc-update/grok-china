@@ -151,6 +151,7 @@ export default defineConfig({
           text: 'Grok 教程',
           collapsed: false,
           items: [
+            { text: 'xai grok 免翻墙使用指南 2026 | 国内直接访问Grok的完整方案', link: '/tutorial/xai-grok-mian-fanqiang-shiyong-zhinan-2026-04' },
             { text: 'Grok中文版 2026：功能详解、使用教程与国内访问方案', link: '/tutorial/grok-zhongwenban-2026-gongneng-jiaocheng-guonei-fangan-2026-04' },
             { text: 'Grok中文版 2026：功能全解析与国内使用完整指南', link: '/tutorial/grok-zhongwen-ban-2026' },
             { text: 'Claude 4.6 国内使用教程2026：免翻墙直连Claude中文版完整指南（4月实测）', link: '/tutorial/claude-46-guonei-shiyong-jiaocheng-wanzheng-zhinan-2026' },
