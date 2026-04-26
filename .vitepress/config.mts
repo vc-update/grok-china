@@ -151,6 +151,7 @@ export default defineConfig({
           text: 'Grok 教程',
           collapsed: false,
           items: [
+            { text: 'Grok官网入口：国内Grok4.2保姆级使用指南（2026年4月最新）', link: '/tutorial/grok-guanwang-rukou-guonei-grok42-shiyong-zhinan-2026-04' },
             { text: 'Grok官网入口2026 - xAI旗下先进AI聊天机器人完整使用指南', link: '/tutorial/grok-guanwang-rukou-xai-ai-chatbot-zhinan-2026-04' },
             { text: 'Grok 4.3 Beta 深度评测：真能把事情做出来的 AI 智能体', link: '/tutorial/grok-4-3-beta-shendu-pingce-2026-04' },
             { text: 'Grok 4.3 全面解析：参数量、视频理解与IDE集成深度评测（2026年4月）', link: '/tutorial/grok-4-3-quanmian-jiexi-canshu-shipin-ide-2026-04' },
