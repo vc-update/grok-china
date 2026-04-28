@@ -151,6 +151,7 @@ export default defineConfig({
           text: 'Grok 教程',
           collapsed: false,
           items: [
+            { text: 'Grok是什么？2026年04月最新完整使用指南（含国内访问方法）', link: '/tutorial/grok-shiyong-zhinan-2026-04' },
             { text: 'Grok是什么？2026年04月最新完整指南（功能/使用/对比）', link: '/tutorial/grok-shi-shenme-2026-04' },
             { text: 'Grok是什么？2026年最新完整指南（功能/使用教程/中国访问）', link: '/tutorial/grok-shi-shenme-wanzheng-zhinan-2026-04' },
             { text: 'Grok是什么？2026年最新完整使用指南（中文版）', link: '/tutorial/grok-shi-shenme-2026-wan-zheng-shi-yong-zhi-nan-2026-04' },
